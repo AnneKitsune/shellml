@@ -1,0 +1,44 @@
+{
+  "model": "llama3.1:8b",
+  "messages": [
+  ],
+  "stream": false,
+  "tools": [
+    {
+      "type": "function",
+      "function": {
+        "name": "get_current_weather",
+        "description": "Get the current weather for a city",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string",
+              "description": "The name of the city. Reformat the location name to be a city compatible with the wttr.in API. The city will be appended at the end of the url like so: wttr.in/CityName. For example, NewYork."
+            }
+          },
+          "required": ["city"]
+        }
+      }
+    },
+    {
+      "type": "function",
+      "function": {
+        "name": "run_terminal",
+        "description": "Runs a command inside of a linux bash terminal.",
+        "parameters": {
+          "type": "object",
+          "properties": {
+            "command": {
+              "type": "string",
+              "description": "The command to run inside of the linux terminal. Example: ls -R"
+            }
+          },
+          "required": ["command"]
+        }
+      }
+    }
+  ]
+}
+
+
